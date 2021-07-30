@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Yazı Listesi{% endblock %}
+
+{% block body %}
+
+<h1 style="color:red">Yayınlanan Yazılar</h1>
+    <form action="">
+        <input type="text" name="kelime" placeholder="Arama Yapın..." value="{{ request.GET.kelime }}"><input type="submit" value="Arama Yap">
+    </form>
+
+<hr style="height:5px; background-color: red">
+
+{% for yazi in yazilar %}
+<h2 style="color:brown"><a href="detail/{{ yazi.slug }}">{{ yazi.baslik }}</a></h2>
+    <h3>{{ yazi.metin }}</h3>
+    <h4>{{ yazi.yayinTarihi }}</h4>
+
+    <hr style="background-color: black; height:2px">
+{% endfor %}
+<a href="/">Geri Dön</a>
+
+<div class="pagination">
+    <span class="step-links">
+        {% if yazilar.has_previous %}
+            <a href="?page=1&kelime={{ request.GET.kelime }}">&laquo; first</a>
+            <a href="?page={{ yazilar.previous_page_number }}&kelime={{ request.GET.kelime }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ yazilar.number }} of {{ yazilar.paginator.num_pages }}
+        </span>
+
+        {% if yazilar.has_next %}
+            <a href="?page={{ yazilar.next_page_number }}&kelime={{ request.GET.kelime }}">next</a>
+            <a href="?page={{ yazilar.paginator.num_pages }}&kelime={{ request.GET.kelime }}">last &raquo;</a>
+        {% endif %}
+        </span>
+</div>
+
+{% endblock %}

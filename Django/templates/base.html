@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <style type="text/css">
+        body{
+            background-color: #30D5C8;
+            color: black;
+            margin: 5px;
+            position: static;
+            }
+        #header{
+            text-align:center;
+            height:120px;
+            width:100%;
+            position:static;
+            font-family: Advent Pro;
+            font-size:25px;
+        }
+        #baslik{
+            margin:0px;
+            position:absolute;
+            left:10px;
+            top:25px;
+            color: #e63900;
+        }
+        #header_resim{
+            position: absolute;
+            left: 750px;
+            top: 20px;
+        }#footer{
+            text-align:center;
+            margin-left:0%;
+            height:30px;
+            width:100%;
+            position:fixed;
+            bottom:0px;
+            color: #e63900;
+        }
+    </style>
+</head>
+<body>
+
+<div id = "header">
+    <h1 id="baslik">cihanIoyan<sub>.com</sub></h1>
+    <a href="/"><img src = "{% static 'bayrak.png' %}" width="230" height="130" id="header_resim"></a>
+</div>
+
+{% block body %}
+
+{% endblock %}
+
+
+</body>
+</html>

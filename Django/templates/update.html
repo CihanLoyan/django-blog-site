@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Güncelleme Sayfası</title>
+</head>
+<body>
+<h1>Güncelleme Sayfası</h1>
+
+<form action="/uygulama1_post/updateYolla/{{ yazi.id }}" method="GET">
+        {{ form.media }}
+
+    Yazı Başlığı: <input type="text" name="baslik" value="{{ yazi.baslik }}"><br><br>
+    Yazı Metni: <textarea name="metin" cols="30" rows="10">{{ yazi.metin }}</textarea><br>
+    <button type="submit">Gönder</button>
+    <br>
+    <a href="/">Geri Dön</a>
+
+
+</form>
+
+
+</body>
+</html>

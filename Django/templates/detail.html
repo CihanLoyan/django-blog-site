@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<h1 style="color:red">{{ yazi.baslik }}</h1>
+
+{% if yazi.image %}
+<img src="{{ yazi.image.url }}">
+{% endif %}
+
+<h3> {{ yazi.metin|safe }} </h3>
+<h4> {{ yazi.yayinTarihi }}</h4>
+<br>
+<a href="/uygulama1_post/update/{{ yazi.id }}"><button>Düzenle</button></a>
+<a href="/uygulama1_post/delete/{{ yazi.id }}"><button>Sil</button></a>
+<br><br>
+<h3>Yorumlar</h3>
+{% for yorum in yorumlar %}
+
+    <strong>{{ yorum.metin }}</strong>
+    <br>
+    {{ yorum.yayinTarihi }}
+    <br>
+{% endfor %}
+
+<br><br>
+<a href="/uygulama1_post">Geri Dön</a>
+
+{% endblock %}

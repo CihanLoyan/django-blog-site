@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Ana Sayfa{% endblock %}
+
+{% block body %}
+
+<div style="position:static">
+    <h1>{{sayfaAdi}} <br> Hoşgeldiniz... {{ request.user.get_full_name }}</h1>
+    <br>
+
+
+    <a href="/">Anasayfa</a><br>
+    <a href="/uygulama1_post">Yazı Listesi</a><br>
+    <a href="/uygulama1_post/create">Yeni Yazı Oluştur</a><br>
+
+        {% if not request.user.is_authenticated %}
+            <a href="login">Giriş Yap</a><br>
+            <a href="register">Kayıt Ol</a>
+        {% else %}
+            <a href="logout">Çıkış Yap</a>
+        {% endif %}
+</div>
+{% endblock %}

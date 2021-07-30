@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Yeni Yazı Oluştur{% endblock %}
+
+{% block body %}
+
+<h1>Create Sayfası</h1>
+
+<form action="formDoldur" method="POST" enctype="multipart/form-data">{% csrf_token %}
+    {{ form.media }}
+    {{ form.as_p }}
+    <button type="submit">Gönder</button>
+</form>
+
+{% endblock %}
